@@ -13,4 +13,6 @@ const Template: React.FC = () => {
         </IonHeader>
     </IonPage>
   );
-}      
+};
+
+export default Template;      
