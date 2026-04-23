@@ -1,5 +1,4 @@
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router";
 import Feed from "./home-tabs/Feed";
 import Favorites from "./home-tabs/Favorites";
@@ -14,7 +13,6 @@ const Home: React.FC = () => {
     ]
 
     return (
-        <IonReactRouter>
           <IonTabs>
           <IonTabBar slot="bottom">
             <IonToolbar>
@@ -30,14 +28,13 @@ const Home: React.FC = () => {
           </IonTabBar>
           <IonRouterOutlet>
             <Route exact path="/app/home/feed" component={Feed} />
-            <Route exact path="/app/home" />
-            <Redirect to="/app/home/feed" />
-            
+            <Route exact path="/app/home">
+              <Redirect to="/app/home/feed" />
+            </Route>
             <Route exact path="/app/home/search" component={Search} />
             <Route exact path="/app/home/favorites" component={Favorites} />
           </IonRouterOutlet>
           </IonTabs>
-        </IonReactRouter>
 
     );
 };

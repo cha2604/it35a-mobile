@@ -1,49 +1,71 @@
-import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuButton, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
-import { Redirect, Route } from 'react-router-dom';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from "@ionic/react"
+import { heart, thumbsUpOutline, chatbubbleOutline, share } from "ionicons/icons";
 
+const Feed: React.FC = () => {
 
-const Menu: React.FC = () => {
-  const path = [
-    { url: '/app/home', icon: 'home', name: 'Home' },
-    // Add more menu items as needed
-  ];
-
+    const AncientHeroes = [
+        {name: 'Zeus'},
+        {name: 'Anti Mage'},
+        {name: 'Phantom Assassin'},
+        {name: 'Queen of Pain'},
+        {name: 'Shadow Fiend'},
+    ]
   return (
     <IonPage>
-        <IonSplitPane contentId= "main">
-            <IonMenu contentId="main">
-                <IonHeader>
-                    <IonToolbar>
-                        <IonTitle>Menu</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+        <IonHeader>
+            <IonToolbar>
+                <IonButtons>
+                    <IonMenuButton></IonMenuButton>
+                    <IonTitle>Feed</IonTitle>
+                </IonButtons>
                 
-            </IonMenu>
-            <IonContent>
-                <IonHeader>
-                    <IonToolbar>
-                    </IonToolbar>
-                </IonHeader>
-                <IonContent>
-                    {path.map((item, index) => (
-                        <IonMenuToggle key={index}>
-                            <IonItem routerLink={item.url} routerDirection="forward">
-                                <IonIcon icon={item.icon} slot="start"></IonIcon>
-                                {item.name}
-                            </IonItem>
-                        </IonMenuToggle>
-                    ))}
-                </IonContent>
-            </IonMenu>
-            <IonContent>
-                <IonRouterOutlet id="main">
-                    <Route path="/app/home" component={Home} />
-                    <Route exact path="/app">
-                        <Redirect to="/app/home" />
-                    </Route>
-                </IonRouterOutlet>
-            </IonContent>
-            </IonSplitPane>
-        </IonPage>
-      );
-    };
+            </IonToolbar>
+        </IonHeader>
+            <IonContent className = "ion-padding">
+            <IonList inset = {true}>
+
+            {AncientHeroes.map((item, index) => (
+
+                 <IonItem>
+                    <IonCard>
+                        <IonGrid>
+                            <IonRow>
+                                <IonCol>
+                                    <img style={{ width: "200px", height: "200px" }} alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                                </IonCol>
+
+                                <IonCol>
+                                <IonCardHeader>
+                                    <IonCardTitle>{item.name}</IonCardTitle>
+                                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                                </IonCardHeader>
+                                <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
+                                 </IonCol>
+                            <IonCol>
+                                <IonButton shape="round">
+                                    <IonIcon slot="icon-only" icon={thumbsUpOutline}></IonIcon>
+                                </IonButton>
+                            </IonCol>
+                            <IonCol>
+                                <IonButton shape="round">
+                                    <IonIcon slot="icon-only" icon={chatbubbleOutline}></IonIcon>
+                                </IonButton>
+                            </IonCol>
+                            <IonCol>
+                                <IonButton shape="round">
+                                    <IonIcon slot="icon-only" icon={share}></IonIcon>
+                                </IonButton>
+                            </IonCol>
+                            </IonRow>
+                        </IonGrid>
+                    </IonCard>
+                </IonItem>
+    ))}
+    </IonList>
+        </IonContent>
+    </IonPage>
+    );   
+
+};
+
+export default Feed;
