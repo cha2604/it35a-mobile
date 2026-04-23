@@ -3,12 +3,12 @@ import { thumbsUpOutline, chatbubbleOutline, share } from "ionicons/icons";
 
 const Feed: React.FC = () => {
 
-  const AncientHeroes = [
-    { name: 'Zeus', subtitle: 'God of Thunder', description: 'Ruler of Mount Olympus and the heavens.' },
-    { name: 'Anti Mage', subtitle: 'The Outcast', description: 'A mage who rejects all magic and fights against it.' },
-    { name: 'Phantom Assassin', subtitle: "Death's Daughter", description: 'A deadly assassin who strikes from the shadows.' },
-    { name: 'Queen of Pain', subtitle: 'The Agony', description: 'Master of pain and suffering.' },
-    { name: 'Shadow Fiend', subtitle: 'The Demon', description: 'A demon who feeds on souls.' },
+  const Anime = [
+    { name: 'Jujutsu kaisen', subtitle: 'God of Thunder', description: 'Ruler of Mount Olympus and the heavens.' },
+    { name: 'Solo leveling', subtitle: 'The Outcast', description: 'A mage who rejects all magic and fights against it.' },
+    { name: 'Sakamoto days', subtitle: "Death's Daughter", description: 'A deadly assassin who strikes from the shadows.' },
+    { name: 'Naruto', subtitle: 'The Agony', description: 'Master of pain and suffering.' },
+    { name: 'One piece', subtitle: 'The Demon', description: 'A demon who feeds on souls.' },
   ];
 
   return (
@@ -22,7 +22,7 @@ const Feed: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        {AncientHeroes.map((hero, index) => (
+        {Anime.map((hero, index) => (
           <IonCard key={index}>
             <img alt={hero.name} src="https://ionicframework.com/docs/img/demos/card-media.png" />
             <IonCardHeader>
