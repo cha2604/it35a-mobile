@@ -33,7 +33,7 @@ const Menu: React.FC = () => {
                 </IonItem>
               </IonMenuToggle>
             ))}
-        
+
             <IonButton routerLink="/app/home" routerDirection="forward" expand="full">
               <IonIcon icon={homeOutline} slot="start" />
               Home

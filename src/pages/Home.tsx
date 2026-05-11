@@ -4,7 +4,6 @@ import { Redirect, Route } from "react-router";
 import Feed from "./home-tabs/Feed";
 import Favorites from "./home-tabs/Favorites";
 import Search from "./home-tabs/Search";
-
 import { bookOutline, search, star } from "ionicons/icons";
 const Home: React.FC = () => {
   const tabs = [
@@ -38,7 +37,6 @@ const Home: React.FC = () => {
           </IonRouterOutlet>
           </IonTabs>
         </IonReactRouter>
-
     );
 };
 export default Home;
